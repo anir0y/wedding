@@ -329,7 +329,7 @@
 	
 
 	
-<!--
+<!--Contact Page-->
 
 	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
 		<div class="overlay"></div>
@@ -357,13 +357,16 @@
 						</div>
 						<div class="col-md-4 col-sm-4">
 							<button type="submit" class="btn btn-default btn-block">I am Attending</button>
+							<div>
+								<p id="result-text"></p>
+							</div>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
--->
+
 
 	<footer id="fh5co-footer" role="contentinfo">
 		<div class="container">
@@ -430,6 +433,41 @@
         enableUtc: false
     });
 </script>
+
+<!--Form JS-->
+
+<script>
+	const form = document.querySelector("form");
+	form.addEventListener("submit", (event) => {
+	  event.preventDefault();
+	  const {name,email}= event.target;
+	  const endpoint = "https://aa4pdj7w9l.execute-api.ap-south-1.amazonaws.com/default/Wedding_lambda_emailFunction";
+	
+	  const body=JSON.stringify({
+		senderName: name.value,
+		senderEmail: email.value
+	  });
+	
+	  const requestOptions = {
+		method: "POST",
+		body
+	  };
+	
+	  fetch(endpoint, requestOptions)
+		.then((response) => {
+		  if (!response.ok) throw new error("Fetch Error");
+		  return respo.JSON();
+		})
+		.then((response) => {
+		  document.getElementById("result-text").innerText ="Sent Successfully";
+		})
+		.catch((error) =>{
+		  document.getElementById("result-text").innerText="🥰 we received your request!💖";
+		});
+	});
+	
+	
+	</script>
 
 	</body>
 </html>
