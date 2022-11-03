@@ -44,3 +44,20 @@
     0%   { box-shadow:0 0 40px rgba(213,9,60,1);}
         100%  {box-shadow:0 0 40px rgba(213,9,60,.6);}
       }
+
+#rsvp{
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+  position: fix;
+  margin-bottom: 2px;
+  height: 50px;
+  margin-top: -50px;
+}
+a{
+  background-image: linear-gradient(to left, lavender, green, yellow, orange, red);   -webkit-background-clip: text;
+  color: transparent;
+}
+html body{
+  background-color: lavender;
+}
